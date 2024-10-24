@@ -1,0 +1,15 @@
+[Unit]
+Description=Docker Compose Mosquitto Service
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/home/franco/moskquito
+ExecStart=/usr/local/bin/docker-compose up -d
+ExecStop=/usr/local/bin/docker-compose down
+Restart=always
+User=franco
+
+[Install]
+WantedBy=multi-user.target
+
