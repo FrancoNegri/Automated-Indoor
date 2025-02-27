@@ -7,8 +7,8 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 MQTT_BROKER = "localhost"
 MQTT_PORT = 1883
 MQTT_TOPIC = "garden/sensors"
-INFLUXDB_ADDRESS = "http://192.168.0.41:8086"
-token = "pSvHG3_c71SI4fUNB82Trjh2ewk7o-xCoONN4BS9uMKWNoV9rZZQWegfsmxR5edo0hIIVktAr-t-N--UbJ9NlQ=="
+INFLUXDB_ADDRESS = "192.168.0.19:8086"
+token = "yZJRrtVvV6Tv9NnhmnOLe9iCR43fP-tmPBNaZyZ1d9Heac2hGc3NISit-i8Ol_7uIOr5MiOKxFaAxzvSeQdqsg=="
 org = "Peco"
 bucket = "garden_data"
 
@@ -23,7 +23,9 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(f"Received message on topic {msg.topic} msg: {repr(msg.payload)}")
     try:
-        data = json.loads(msg.payload)
+	# Decode and parse JSON
+        payload = msg.payload.decode("utf-8")
+        data = json.loads(payload)
         write_to_influxdb(data)
     except Exception as e:
         print(f"Error processing message: {e}")
