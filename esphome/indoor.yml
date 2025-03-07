@@ -1,0 +1,62 @@
+esphome:
+  name: indoor
+  friendly_name: Indoor
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "3HcYwlm/KIQkaU1rjHqWT4lRABer0GnkeWwwRlzopVM="
+
+ota:
+  - platform: esphome
+    password: "21232f297a57a5a743894a0e4a801fc3"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  #CHANGE IP
+  use_address: 192.168.0.14
+  ap:
+    ssid: "Casa Fallback Hotspot"
+    password: "8LW7uXRvPPj4"
+
+captive_portal:
+
+mqtt:
+  topic_prefix: indoor
+  discovery: false
+  broker: "192.168.0.19"
+  port: 1883
+  discovery_prefix: homeassistant
+  birth_message:
+    topic: esp/devices
+    payload: 'Booting ESP32'
+  will_message:
+    topic: esp/devices
+    payload: 'Shutdown ESP32'
+  on_message: []
+
+sensor:
+  - platform: dht
+    pin: GPIO4
+    temperature:
+      name: "Roof Temperature"
+    humidity:
+      name: "Roof Humidity"
+    update_interval: 60s
+
+  - platform: adc
+    pin: GPIO34
+    name: "Roof Brightness"
+    update_interval: 60s
+    filters:
+    - lambda: return x * (-100) + 100;
+
