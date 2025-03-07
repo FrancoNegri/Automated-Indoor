@@ -1,0 +1,16 @@
+[2025-02-28 14:55:46] info: 	z2m: Logging to console, file (filename: log.log)
+[2025-02-28 14:55:46] info: 	z2m: Starting Zigbee2MQTT version 2.1.1 (commit #1accb8b66b95b99658c50e4c0209edcb946a5fe2)
+[2025-02-28 14:55:46] info: 	z2m: Starting zigbee-herdsman (3.2.5)
+[2025-02-28 14:55:46] error: 	z2m: Error while starting zigbee-herdsman
+[2025-02-28 14:55:46] error: 	z2m: Failed to start zigbee-herdsman
+[2025-02-28 14:55:46] error: 	z2m: Check https://www.zigbee2mqtt.io/guide/installation/20_zigbee2mqtt-fails-to-start_crashes-runtime.html for possible solutions
+[2025-02-28 14:55:46] error: 	z2m: Exiting...
+[2025-02-28 14:55:46] error: 	z2m: Error: USB adapter discovery error (No valid USB adapter found). Specify valid 'adapter' and 'port' in your configuration.
+    at discoverAdapter (/app/node_modules/.pnpm/zigbee-herdsman@3.2.5/node_modules/zigbee-herdsman/src/adapter/adapterDiscovery.ts:523:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at Function.create (/app/node_modules/.pnpm/zigbee-herdsman@3.2.5/node_modules/zigbee-herdsman/src/adapter/adapter.ts:68:33)
+    at Controller.start (/app/node_modules/.pnpm/zigbee-herdsman@3.2.5/node_modules/zigbee-herdsman/src/controller/controller.ts:132:24)
+    at Zigbee.start (/app/lib/zigbee.ts:69:27)
+    at Controller.start (/app/lib/controller.ts:142:13)
+    at start (/app/index.js:161:5)
+[2025-02-28 14:55:46] error: 	z2m: If this happens after updating to Zigbee2MQTT 2.0.0, see https://github.com/Koenkk/zigbee2mqtt/discussions/24364
