@@ -14,4 +14,4 @@ services:
     privileged: true
     environment:
       - USERNAME=admin
-      - PASSWORD=popote123
+      - PASSWORD=password123

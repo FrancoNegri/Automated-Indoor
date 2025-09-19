@@ -61,10 +61,11 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "off"
+              "mode": "dashed"
             }
           },
           "mappings": [],
+          "max": 60,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -74,7 +75,7 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 45
               }
             ]
           }
@@ -87,7 +88,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 3,
+      "id": 1,
       "options": {
         "legend": {
           "calcs": [],
@@ -104,9 +105,13 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "beefrds1d9ts0f"
+          },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "indoor_state{topic=\"indoor_sensor_roof_brightness\"}",
+          "expr": "indoor_state{topic=\"indoor_sensor_roof_temperature\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "legendFormat": "__auto",
@@ -115,7 +120,7 @@
           "useBackend": false
         }
       ],
-      "title": "Luz",
+      "title": "Temp",
       "type": "timeseries"
     },
     {
@@ -212,7 +217,7 @@
           "useBackend": false
         }
       ],
-      "title": "Humedad",
+      "title": "Humidity",
       "type": "timeseries"
     },
     {
@@ -255,7 +260,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "dashed"
+              "mode": "off"
             }
           },
           "mappings": [],
@@ -267,8 +272,7 @@
                 "value": null
               },
               {
-                "color": "red",
-                "value": 45
+                "value": 80
               }
             ]
           }
@@ -281,7 +285,7 @@
         "x": 0,
         "y": 8
       },
-      "id": 1,
+      "id": 3,
       "options": {
         "legend": {
           "calcs": [],
@@ -298,13 +302,9 @@
       "pluginVersion": "11.5.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "beefrds1d9ts0f"
-          },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "indoor_state{topic=\"indoor_sensor_roof_temperature\"}",
+          "expr": "indoor_state{topic=\"indoor_sensor_roof_brightness\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "legendFormat": "__auto",
@@ -313,7 +313,7 @@
           "useBackend": false
         }
       ],
-      "title": "Temperatura",
+      "title": "Light",
       "type": "timeseries"
     }
   ],
@@ -325,13 +325,13 @@
     "list": []
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "New dashboard",
+  "title": "Indoor",
   "uid": "beefrt8d15rlsc",
-  "version": 6,
+  "version": 14,
   "weekStart": ""
 }

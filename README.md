@@ -44,7 +44,7 @@ Just Dockers and some magic config files to make all data flow.
   ```bash
   docker-compose -f up -d
 - Access Grafana at http://localhost:3000 (default user: `admin`, password: `admin`).
-- Import the dashboard configuration from `grafana/Jardin-1740619094129.json` to create the dashboard.
+- Import the dashboard configuration from `grafana/grafana_indor_dashboard.json` to create the dashboard.
 
 ## Usage
 - Monitor real-time sensor data on the Grafana dashboard.
