@@ -1,4 +1,4 @@
-# Indoor Monitoring Dashboard
+# SmartIndoor Hub
 
 <img width="1905" height="757" alt="image" src="https://github.com/user-attachments/assets/9851e6b3-a3be-4160-add5-5814910e2038" />
 
