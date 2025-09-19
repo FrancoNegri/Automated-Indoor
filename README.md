@@ -54,8 +54,10 @@ Just Dockers and some magic config files to make all data flow.
 ## Notes
 - Ensure the MQTT broker IP and ESP32 IP match your network setup.
 
-
-
-
-
-
+## Acknowledgments
+- [ESPHome](https://esphome.io/) - For providing the ESPHome framework to configure and manage the ESP32.
+- [Grafana](https://grafana.com/) - For the powerful dashboard and visualization tools.
+- [Prometheus](https://prometheus.io/) - For the monitoring and alerting toolkit.
+- [Eclipse Mosquitto](https://mosquitto.org/) - For the MQTT broker implementation.
+- [Docker](https://www.docker.com/) - For containerization support.
+- Special thanks to the open-source community for their contributions and support.
