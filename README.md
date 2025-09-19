@@ -11,7 +11,7 @@ Additionally, the project includes alerting capabilities through Alertmanager, a
 ## Data Flow Overview
 1. **Data Collection**: The ESP32, configured with ESPHome, collects sensor data (temperature, humidity, and light) using a DHT sensor and an ADC pin.
 2. **MQTT Transmission**: The collected data is published to the MQTT broker (Eclipse Mosquitto).
-3. **Data Processing**: The MQTT broker forwards the data to MQTT exporters (e.g., `kpetrem/mqtt-exporter` and `sapcc/mosquitto-exporter`), which convert it into a format compatible with Prometheus.
+3. **Data Processing**: The MQTT broker forwards the data to the MQTT exporter (`sapcc/mosquitto-exporter`), which convert it into a format compatible with Prometheus.
 4. **Data Storage**: Prometheus scrapes the data from the MQTT exporters and stores it in a time-series database.
 5. **Visualization**: Grafana pulls the stored data from Prometheus and displays it on a dashboard.
 6. **Alerting (Optional)**: AlertManager, integrated with Prometheus, can be configured to send notifications based on predefined thresholds.
@@ -57,5 +57,6 @@ Additionally, the project includes alerting capabilities through Alertmanager, a
 - [Grafana](https://grafana.com/) - For the powerful dashboard and visualization tools.
 - [Prometheus](https://prometheus.io/) - For the monitoring and alerting toolkit.
 - [Eclipse Mosquitto](https://mosquitto.org/) - For the MQTT broker implementation.
+- [Mosquitto Exporter](https://github.com/sapcc/mosquitto-exporter) - For the MQTT Mosquito exporter implementation. 
 - [Docker](https://www.docker.com/) - For containerization support.
 - Special thanks to the open-source community for their contributions and support.
