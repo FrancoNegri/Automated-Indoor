@@ -2,21 +2,19 @@
 
 <img width="1905" height="757" alt="image" src="https://github.com/user-attachments/assets/9851e6b3-a3be-4160-add5-5814910e2038" />
 
-This project creates an indoor monitoring dashboard using Grafana, ESP32, and ESPHome to track temperature, humidity, and light levels.
+This project creates an indoor monitoring dashboard using Grafana, ESP32, and ESPHome to track temperature, humidity, and light levels, leveraging real-time data collection, MQTT-based communication, and Prometheus for storage and visualization. The setup integrates an ESP32 microcontroller configured with ESPHome to gather sensor data, which is then transmitted via MQTT to a local broker. Grafana provides an intuitive interface to display this data in customizable dashboards, making it easy to monitor environmental conditions over time.
 
-## Overview
+The system is designed for flexibility and scalability, utilizing Docker containers to manage services like the MQTT broker, Prometheus, and Grafana. This containerized approach simplifies deployment and ensures consistent performance across different environments. Users can adjust sensor update intervals and thresholds directly in the ESPHome configuration or fine-tune the dashboard layout in Grafana, tailoring the setup to specific needs such as home automation or environmental research.
 
-The setup uses an ESP32 microcontroller with ESPHome firmware to collect sensor data, which is then sent to an MQTT broker.
+Additionally, the project includes alerting capabilities through Alertmanager, allowing users to set notifications for unusual conditions, such as extreme temperature changes. The open-source nature of the tools ensures ongoing support and community-driven improvements, while the included Docker Compose files streamline the setup process for both beginners and experienced developers. This combination of hardware and software creates a robust solution for indoor monitoring, adaptable to various use cases.
 
-We use a Mosquito subscriber to then get the data from the MQTT broker to the Prometheous DB.
-
-From there grafana takes it and uses it for the visualizations.
-
-The service also runs Alertmanager in case you decide to create your own alerts.
-
-This project does not use code!
-
-Just Dockers and some magic config files to make all data flow.
+## Data Flow Overview
+1. **Data Collection**: The ESP32, configured with ESPHome, collects sensor data (temperature, humidity, and light) using a DHT sensor and an ADC pin.
+2. **MQTT Transmission**: The collected data is published to the MQTT broker (Eclipse Mosquitto).
+3. **Data Processing**: The MQTT broker forwards the data to MQTT exporters (e.g., `kpetrem/mqtt-exporter` and `sapcc/mosquitto-exporter`), which convert it into a format compatible with Prometheus.
+4. **Data Storage**: Prometheus scrapes the data from the MQTT exporters and stores it in a time-series database.
+5. **Visualization**: Grafana pulls the stored data from Prometheus and displays it on a dashboard.
+6. **Alerting (Optional)**: AlertManager, integrated with Prometheus, can be configured to send notifications based on predefined thresholds.
 
 ## Prerequisites
 - A Linux compatible host, Docker and Docker Compose
